@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors(
-    { origin: 'http://localhost:3000' }
+    { origin: '' }
 ));    //cors used for POST method 
 
 app.use(bodyParser.json({ extended: true }))     //bodyParser.json() specifically parses incoming requests with JSON payloads, making the data available in req.body.
@@ -18,11 +18,19 @@ app.use(bodyParser.urlencoded({ extended: true })) //middleware parses URL-encod
 
 app.use('/', Router);
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => console.log(`Server is Running Successfully on PORT ${PORT}`))
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static("Frontend/build"));
+
+}
 
 const username = process.env.DB_Username;
 const password = process.env.DB_Password;
 
-Connection(username, password);
+const URL = process.env.MONGODB_URI || `mongodb+srv://${username}:${password}@blogapp.bqsqi.mongodb.net/?retryWrites=true&w=majority&appName=BlogApp`
+
+
+Connection(URL);

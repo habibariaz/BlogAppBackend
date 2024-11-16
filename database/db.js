@@ -1,8 +1,7 @@
 import mongoose from "mongoose"
 
-const Connection = async (username, password) => {
+const Connection = async (URL) => {
 
-    const URL = `mongodb+srv://${username}:${password}@blogapp.bqsqi.mongodb.net/?retryWrites=true&w=majority&appName=BlogApp`
 
     try {
         await mongoose.connect(URL)

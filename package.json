@@ -2,10 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node server.js",
+    "backend-install": "cd backend && npm install",
+    "build":"cd backend && npm run build",
+    "heroko-postbuild": "npm run backend-install && npm run build"
   },
   "author": "",
   "license": "ISC",
