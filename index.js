@@ -16,8 +16,6 @@ const corsOptions = {
     credentials: true // Allows cookies to be sent
 }; 
 
-app.options("", cors(corsOptions));
-
 app.use(cors(corsOptions)); 
 app.use(bodyParser.json({ extended: true }))     //bodyParser.json() specifically parses incoming requests with JSON payloads, making the data available in req.body.
 app.use(bodyParser.urlencoded({ extended: true })) //middleware parses URL-encoded data from the client, such as form submissions where the data is encoded in key-value pairs in the URL format
