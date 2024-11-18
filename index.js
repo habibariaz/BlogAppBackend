@@ -34,4 +34,8 @@ const password = process.env.DB_Password;
 
 const URL = process.env.MONGODB_URI || `mongodb+srv://${username}:${password}@blogapp.bqsqi.mongodb.net/?retryWrites=true&w=majority&appName=BlogApp`
 
+app.get('/', (req, res) => {
+    res.send('Response for your route');
+});
+
 Connection(URL);
