@@ -22,15 +22,10 @@ const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => console.log(`Server is Running Successfully on PORT ${PORT}`))
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static("Frontend/build"));
-
-}
 
 const username = process.env.DB_Username;
 const password = process.env.DB_Password;
 
 const URL = process.env.MONGODB_URI || `mongodb+srv://${username}:${password}@blogapp.bqsqi.mongodb.net/?retryWrites=true&w=majority&appName=BlogApp`
-
 
 Connection(URL);
