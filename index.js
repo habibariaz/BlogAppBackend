@@ -9,13 +9,13 @@ import bodyParser from 'body-parser';
 dotenv.config();
 const app = express();
 
-app.use(cors(
-    { origin: 'https://blog-app-umber-psi.vercel.app/',
-     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+const corsOptions = {
+    origin: "https://blog-app-umber-psi.vercel.app", // Replace with your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true // Allows cookies to be sent
-    }
-));    //cors used for POST method 
+}; 
 
+app.use(cors(corsOptions)); 
 app.use(bodyParser.json({ extended: true }))     //bodyParser.json() specifically parses incoming requests with JSON payloads, making the data available in req.body.
 app.use(bodyParser.urlencoded({ extended: true })) //middleware parses URL-encoded data from the client, such as form submissions where the data is encoded in key-value pairs in the URL format
 
