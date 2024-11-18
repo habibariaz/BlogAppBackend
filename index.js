@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: "https://blog-app-umber-psi.vercel.app/", // Replace with your frontend URL
+    origin: "https://blog-app-umber-psi.vercel.app", // Replace with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true // Allows cookies to be sent
 }; 
