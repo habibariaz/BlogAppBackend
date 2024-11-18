@@ -10,7 +10,10 @@ dotenv.config();
 const app = express();
 
 app.use(cors(
-    { origin: '' }
+    { origin: 'https://blog-app-umber-psi.vercel.app/',
+     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true // Allows cookies to be sent
+    }
 ));    //cors used for POST method 
 
 app.use(bodyParser.json({ extended: true }))     //bodyParser.json() specifically parses incoming requests with JSON payloads, making the data available in req.body.
