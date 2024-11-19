@@ -9,14 +9,23 @@ import bodyParser from 'body-parser';
 dotenv.config();
 const app = express();
 
+// const corsOptions = {
+//     origin: 'https://blog-app-umber-psi.vercel.app', // Allow frontend origins
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+//     credentials: true, // Allow cookies
+//     allowedHeaders: ['Authorization', 'Content-Type'],
+// };
+
+// app.use(cors(corsOptions));
 const corsOptions = {
-    origin: 'https://blog-app-umber-psi.vercel.app', // Allow frontend origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    credentials: true, // Allow cookies
-    allowedHeaders: ['Authorization', 'Content-Type'],
+  origin: 'https://blog-app-umber-psi.vercel.app', // Your frontend origin
+  credentials: true, // Allow cookies and Authorization headers
 };
 
 app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 
 
 app.use(bodyParser.json({ extended: true }))     //bodyParser.json() specifically parses incoming requests with JSON payloads, making the data available in req.body.
