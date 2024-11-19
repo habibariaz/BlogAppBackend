@@ -13,7 +13,7 @@ const corsOptions = {
     origin: 'https://blog-app-umber-psi.vercel.app', // Allow frontend origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true, // Allow cookies
-    // allowedHeaders: ['Authorization', 'Content-Type'],
+    allowedHeaders: ['Authorization', 'Content-Type'],
 };
 
 app.use(cors(corsOptions));
