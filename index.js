@@ -16,11 +16,9 @@ const app = express();
 // }));
 
 const corsOptions = {
-    origin: process.env.NODE_ENV === 'production' 
-        ? 'https://blog-app-umber-psi.vercel.app/'  // Deployed frontend URL
-        : 'http://localhost:3000',  // Local frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true  // Allows cookies or authentication headers
+    origin: ['https://blog-app-backend-updated.vercel.app'], // Allow frontend origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true, // Allow cookies
 };
 
 app.use(cors(corsOptions));
