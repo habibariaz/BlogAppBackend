@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv'
-// import cors from 'cors'
-const cors = require('cors');
+import cors from 'cors'
 
 import Connection from './database/db.js'
 import Router from './route/Route.js';
@@ -10,13 +9,12 @@ import bodyParser from 'body-parser';
 dotenv.config();
 const app = express();
 
-const corsOptions = {
-    origin: "https://blog-app-umber-psi.vercel.app", // Replace with your frontend URL
+app.use(cors({
+    origin: 'http://localhost:3000', // URL of the frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    credentials: true // Allows cookies to be sent
-}; 
+    credentials: true // Allows cookies or credentials to be sent
+}));
 
-app.use(cors(corsOptions)); 
 app.use(bodyParser.json({ extended: true }))     //bodyParser.json() specifically parses incoming requests with JSON payloads, making the data available in req.body.
 app.use(bodyParser.urlencoded({ extended: true })) //middleware parses URL-encoded data from the client, such as form submissions where the data is encoded in key-value pairs in the URL format
 
