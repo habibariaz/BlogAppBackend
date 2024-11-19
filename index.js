@@ -15,11 +15,15 @@ const app = express();
 //     credentials: true // Allows cookies or credentials to be sent
 // }));
 
-app.use(cors({
-    origin: process.env.NODE_ENV === 'production' ? 'https://blog-app-umber-psi.vercel.app' : 'http://localhost:3000',
+const corsOptions = {
+    origin: process.env.NODE_ENV === 'production' 
+        ? 'https://blog-app-umber-psi.vercel.app/'  // Deployed frontend URL
+        : 'http://localhost:3000',  // Local frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
-}));
+    credentials: true  // Allows cookies or authentication headers
+};
+
+app.use(cors(corsOptions));
 
 
 app.use(bodyParser.json({ extended: true }))     //bodyParser.json() specifically parses incoming requests with JSON payloads, making the data available in req.body.
