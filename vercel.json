@@ -1,14 +1,13 @@
 {
-    "version": 2,
-    "name": "blog-backend",
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/",
-            "methods": ["GET", "PUT", "PATCH", "DELETE", "POST", "OPTIONS"]
-        }
-    ],
+  "version": 2,
+  "name": "blog-backend",
+  "routes": [
     {
+      "src": "/(.*)",
+      "dest": "/",
+      "methods": ["GET", "PUT", "PATCH", "DELETE", "POST", "OPTIONS"]
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -20,6 +19,4 @@
       ]
     }
   ]
-}
-    
 }
