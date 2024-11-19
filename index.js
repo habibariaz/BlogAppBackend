@@ -10,11 +10,11 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: 'https://blog-app-umber-psi.vercel.app', // Allow frontend origins
+    origin: 'http://blog-app-umber-psi.vercel.app', // Allow frontend origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-      "Access-Control-Allow-Origin" = "https://blog-app-umber-psi.vercel.app",
+    credentials: true, // Allow cookies and Authorization headers
     allowedHeaders: ['Authorization', 'Content-Type'],
-        "Access-Control-Allow-Credentials": true
+
 
 };
 
