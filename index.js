@@ -9,17 +9,11 @@ import bodyParser from 'body-parser';
 dotenv.config();
 const app = express();
 
-// app.use(cors({
-//     origin: 'https://blog-app-umber-psi.vercel.app', // URL of the frontend
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-//     credentials: true // Allows cookies or credentials to be sent
-// }));
-
 const corsOptions = {
-    origin: ['https://blog-app-backend-updated.vercel.app'], // Allow frontend origins
+    origin: ['https://blog-app-umber-psi.vercel.app'], // Allow frontend origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true, // Allow cookies
-    allowedHeaders: ['authorization', 'Content-Type'],
+    allowedHeaders: ['Authorization', 'Content-Type'],
 };
 
 app.use(cors(corsOptions));
