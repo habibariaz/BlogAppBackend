@@ -30,6 +30,6 @@ app.listen(PORT, () => console.log(`Server is Running Successfully on PORT ${POR
 const username = process.env.DB_Username;
 const password = process.env.DB_Password;
 
-const URL = process.env.MONGODB_URI || `mongodb+srv://${username}:${password}@blogapp.bqsqi.mongodb.net/?retryWrites=true&w=majority&appName=BlogApp`
 
-Connection(URL);
+
+Connection(username,password);
