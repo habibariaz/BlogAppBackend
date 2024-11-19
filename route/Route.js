@@ -43,4 +43,8 @@ router.get('/comments/:id', authenticateToken, getComments)
 
 router.delete('/comment/delete/:id', authenticateToken, deleteComment);
 
+router.get('/protected', authenticateToken, (req, res) => {
+    res.status(200).json({ msg: 'Access to protected route granted!', user: req.user });
+});
+
 export default router;
