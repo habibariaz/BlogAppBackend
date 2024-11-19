@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000', // URL of the frontend
+    origin: 'https://blog-app-umber-psi.vercel.app', // URL of the frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true // Allows cookies or credentials to be sent
 }));
