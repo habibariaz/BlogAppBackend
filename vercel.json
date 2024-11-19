@@ -1,9 +1,8 @@
 {
   "version": 2,
-  "name": "blog-backend",
    "builds": [
         {
-            "src": "index.js",
+           "src": "/(.*)",
             "use": "@vercel/node"
         }
     ],
