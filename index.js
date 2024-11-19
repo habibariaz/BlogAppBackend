@@ -10,17 +10,13 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: 'http://blog-app-umber-psi.vercel.app', // Allow frontend origins
+    origin: 'https://blog-app-umber-psi.vercel.app', // Allow frontend origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true, // Allow cookies and Authorization headers
     allowedHeaders: ['Authorization', 'Content-Type'],
-
-
 };
 
 app.use(cors(corsOptions));
-
-
 
 app.use(bodyParser.json({ extended: true }))     //bodyParser.json() specifically parses incoming requests with JSON payloads, making the data available in req.body.
 app.use(bodyParser.urlencoded({ extended: true })) //middleware parses URL-encoded data from the client, such as form submissions where the data is encoded in key-value pairs in the URL format
@@ -30,7 +26,6 @@ app.use('/', Router);
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => console.log(`Server is Running Successfully on PORT ${PORT}`))
-
 
 const username = process.env.DB_Username;
 const password = process.env.DB_Password;
